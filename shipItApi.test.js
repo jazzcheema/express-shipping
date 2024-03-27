@@ -1,6 +1,6 @@
 "use strict";
 
-const fetchMock = require('fetch-mock')
+const fetchMock = require('fetch-mock');
 const {
   shipProduct, SHIPIT_SHIP_URL, SHIPIT_API_KEY
 } = require("./shipItApi");
@@ -22,7 +22,7 @@ test("shipProduct", async function () {
       }
     }),
     status: 201
-  })
+  });
 
   const res = await shipProduct({
     name: "jazz2",
@@ -30,12 +30,12 @@ test("shipProduct", async function () {
     zip: "92646",
     key: SHIPIT_API_KEY,
     productId: 1000
-  })
-  const receipt = await res.receipt
+  });
 
-  console.log('res = ', res)
-  console.log('receipt = ', receipt)
+  // const receipt = await res.receipt
+  // console.log('res = ', res)
+  // console.log('receipt = ', receipt)
 
-  expect(res).toEqual(5359)
+  expect(res).toEqual(5359);
 })
 
