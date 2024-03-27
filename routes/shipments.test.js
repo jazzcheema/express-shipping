@@ -22,4 +22,15 @@ describe("POST /", function () {
       .send();
     expect(resp.statusCode).toEqual(400);
   });
+
+  test("throws error if invalid input", async function () {
+    const resp = await request(app).post("/shipments").send({
+      productId: 100,
+      name: 12,
+      addr: "",
+      zip: 12345,
+    });
+    expect(resp.statusCode).toEqual(400);
+  });
+
 });
